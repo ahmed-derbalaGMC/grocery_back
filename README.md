@@ -1,5 +1,3 @@
-
-[logo]: https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fgomycode&psig=AOvVaw2jcUZcSotBVC179-4h7z0T&ust=1581603621570000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICb0uKazOcCFQAAAAAdAAAAABAD 
 # ***Grocery***
 ## IMPORTANT NOTES :
 `YOU NEED TO RELOAD THIS PAGE EVERY TIME YOU NEED IT BECAUSE IT GETS UPDATED FREQUENTLY, CHECK IT BEFORE CONTACTING BACKEND DEVELOPER`  |
