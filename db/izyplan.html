@@ -1,0 +1,5872 @@
+<!-- $Header: /cvsroot/autodoc/autodoc/html.tmpl,v 1.4 2006/05/16 19:01:27 rbt Exp $ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title>Index for nodejs_mongo_boilerplate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+	BODY {
+		color:	#000000;
+		background-color: #FFFFFF;
+		font-family: Helvetica, sans-serif;
+	}
+
+	P {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	P.w3ref {
+		font-size: 8pt;
+		font-style: italic;
+		text-align: right;
+	}
+
+	P.detail {
+		font-size: 10pt;
+	}
+
+	.error {
+		color: #FFFFFF;
+		background-color: #FF0000;
+	}
+
+	H1, H2, H3, H4, H5, H6 {
+	}
+
+	OL {
+		list-style-type: upper-alpha;
+	}
+
+	UL.topic {
+		list-style-type: upper-alpha;
+	}
+
+	LI.topic {
+		font-weight : bold;
+	}
+
+	HR {
+		color: #00FF00;
+		background-color: #808080;
+	}
+
+	TABLE {
+		border-width: medium;
+		padding: 3px;
+		background-color: #000000;
+		width: 90%;
+	}
+
+	CAPTION {
+		text-transform: capitalize;
+		font-weight : bold;
+		font-size: 14pt;
+	}
+
+	TH {
+		color: #FFFFFF;
+		background-color: #000000;
+		text-align: left;
+	}
+
+	TR {
+		color: #000000;
+		background-color: #000000;
+		vertical-align: top;
+	}
+
+	TR.tr0 {
+		background-color: #F0F0F0;
+	}
+
+	TR.tr1 {
+		background-color: #D8D8D8;
+	}
+
+	TD {
+		font-size: 12pt;
+	}
+
+	TD.col0 {
+		font-weight : bold;
+		width: 20%;
+	}
+
+	TD.col1 {
+		font-style: italic;
+		width: 15%;
+	}
+
+	TD.col2 {
+		font-size: 12px;
+	}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+  </head>
+  <body>
+
+    <!-- Primary Index -->
+	<p><br><br>Dumped on 2019-11-27</p>
+<h1><a name="index">Index of database - nodejs_mongo_boilerplate</a></h1>
+<ul>
+    
+    <li><a name="public.schema">public</a></li><ul>
+    	<li><a href="#public.table.Attendances">Attendances</a></li><li><a href="#public.table.Departments">Departments</a></li><li><a href="#public.table.Divisions">Divisions</a></li><li><a href="#public.table.Entreprises">Entreprises</a></li><li><a href="#public.table.EventTypes">EventTypes</a></li><li><a href="#public.table.Events">Events</a></li><li><a href="#public.table.Feedbacks">Feedbacks</a></li><li><a href="#public.table.Groups">Groups</a></li><li><a href="#public.table.Jobs">Jobs</a></li><li><a href="#public.table.Notifications">Notifications</a></li><li><a href="#public.table.OperationOpinions">OperationOpinions</a></li><li><a href="#public.table.Operations">Operations</a></li><li><a href="#public.table.Replacements">Replacements</a></li><li><a href="#public.table.Sessions">Sessions</a></li><li><a href="#public.table.Users">Users</a></li><li><a href="#public.table.Vacations">Vacations</a></li><li><a href="#public.table.WorkdayPresets">WorkdayPresets</a></li><li><a href="#public.table.Workdays">Workdays</a></li><li><a href="#public.table.EntrepriseEvents">EntrepriseEvents</a></li><li><a href="#public.table.entrepriseWorkday">entrepriseWorkday</a></li><li><a href="#public.table.UserEvents">UserEvents</a></li>
+  	
+    </ul>
+    
+</ul>
+
+    <!-- Schema Creation -->
+    <!-- publicpublic -->
+
+		
+		
+        <hr>
+		<h2>Table:
+			<a name="public.table.Attendances">Attendances</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Attendances Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>day</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>date</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>duration</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>weekNumber</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Departments">Departments</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Departments Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Divisions">Divisions.id</a>
+                  
+                
+                </td>
+            	<td>DivisionId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>weeklyWorkHours</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Replacements">Replacements</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Users">Users</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Divisions">Divisions</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Divisions Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isActive</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Departments">Departments</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Users">Users</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Entreprises">Entreprises</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Entreprises Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Groups">Groups.id</a>
+                  
+                
+                </td>
+            	<td>GroupId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>photo</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>workDaysPerWeek</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>employeesCount</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>address</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>email</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>telephone</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>fromDay</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>tillDay</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>country</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>city</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>postalCode</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isActive</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Divisions">Divisions</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.EventTypes">EventTypes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Jobs">Jobs</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Users">Users</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.EntrepriseEvents">EntrepriseEvents</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.entrepriseWorkday">entrepriseWorkday</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.EventTypes">EventTypes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>EventTypes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Groups">Groups.id</a>
+                  
+                
+                </td>
+            	<td>GroupId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Events">Events</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Events">Events</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Events Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>CreatorId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>subject</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.EventTypes">EventTypes.id</a>
+                  
+                
+                </td>
+            	<td>EventTypeId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>photo</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startDate</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>endDate</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.EntrepriseEvents">EntrepriseEvents</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.UserEvents">UserEvents</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Feedbacks">Feedbacks</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Feedbacks Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>type</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>subject</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>ip</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>userAgent</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Groups">Groups</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Groups Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>photo</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isActive</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Entreprises">Entreprises</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.EventTypes">EventTypes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Jobs">Jobs</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Users">Users</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.WorkdayPresets">WorkdayPresets</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Jobs">Jobs</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Jobs Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Groups">Groups.id</a>
+                  
+                
+                </td>
+            	<td>GroupId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>constraint</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Users">Users</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Notifications">Notifications</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Notifications Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>ReceiverId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>SenderId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>type</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>TypeId</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>subject</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isSeen</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.OperationOpinions">OperationOpinions</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>OperationOpinions Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Operations">Operations.id</a>
+                  
+                
+                </td>
+            	<td>OperationId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>opinion</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Operations">Operations</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Operations Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>DecisionMakerId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>status</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isSeen</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Workdays">Workdays.id</a>
+                  
+                
+                </td>
+            	<td>WorkdayId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.OperationOpinions">OperationOpinions</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Replacements">Replacements</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Replacements Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>ReplacerId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Departments">Departments.id</a>
+                  
+                
+                </td>
+            	<td>DepartmentId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>managerOpinion</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>date</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>reason</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>status</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>weekNumber</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>duration</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Sessions">Sessions</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Sessions Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>email</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>attempt</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>token</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>ip</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>userAgent</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isActive</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Users">Users</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Users Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>email</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>role</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Groups">Groups.id</a>
+                  
+                
+                </td>
+            	<td>GroupId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Divisions">Divisions.id</a>
+                  
+                
+                </td>
+            	<td>DivisionId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Departments">Departments.id</a>
+                  
+                
+                </td>
+            	<td>DepartmentId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isActive</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>atWork</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>inBreak</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>requiredServiceTimeHPW</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>serviceTimeMPW</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>breakPerDay</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isOnline</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>inVacation</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>birthDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>gender</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>relationship</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>matricule</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Jobs">Jobs.id</a>
+                  
+                
+                </td>
+            	<td>JobId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>photo</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>contractType</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>contractStartDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>contractEndDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>vacationBalance</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>color</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>lang</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>qrToken</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>firstName</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>lastName</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>telephone</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>password</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Attendances">Attendances</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Events">Events</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Feedbacks">Feedbacks</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Notifications">Notifications</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.OperationOpinions">OperationOpinions</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Operations">Operations</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Replacements">Replacements</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Sessions">Sessions</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Vacations">Vacations</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.WorkdayPresets">WorkdayPresets</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.Workdays">Workdays</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.UserEvents">UserEvents</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Vacations">Vacations</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Vacations Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>reason</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>status</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>managerOpinion</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>startDate</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endDate</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>duration</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>type</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>photo</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.WorkdayPresets">WorkdayPresets</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>WorkdayPresets Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isHoliday</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>day</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>weekWorkHours</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>duration</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>breakStartTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>breakEndTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>breakWeekHours</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Groups">Groups.id</a>
+                  
+                
+                </td>
+            	<td>GroupId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Workdays">Workdays</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.Workdays">Workdays</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>Workdays Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>day</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>date</td>
+            	<td>date</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isHoliday</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isVacation</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>startDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>endDate</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>serviceTimeMPD</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>requiredServiceTimeMPD</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>serviceTimeMPW</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>breakStartTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>breakEndTime</td>
+            	<td>time without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>text</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>weekNumber</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>weekWorkHours</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>isDeleted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.WorkdayPresets">WorkdayPresets.id</a>
+                  
+                
+                </td>
+            	<td>WorkdayPresetId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>wpName</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>isOperational</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                </td>
+            	<td>GeneratedbyId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.Operations">Operations</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.entrepriseWorkday">entrepriseWorkday</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.EntrepriseEvents">EntrepriseEvents</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>EntrepriseEvents Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Events">Events.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>EventId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.entrepriseWorkday">entrepriseWorkday</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>entrepriseWorkday Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Entreprises">Entreprises.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>EntrepriseId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Workdays">Workdays.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>WorkdayId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.UserEvents">UserEvents</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>UserEvents Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>createdAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updatedAt</td>
+            	<td>timestamp with time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.Events">Events.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>EventId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.Users">Users.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>UserId</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+
+
+<p class="w3ref">Generated by <a href="http://www.rbt.ca/autodoc/">PostgreSQL Autodoc</a></p>
+<p class="w3ref"><a href="http://validator.w3.org/check/referer">W3C HTML 4.01 Strict</a></p>
+</body></html>

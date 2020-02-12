@@ -1,0 +1,536 @@
+#!/usr/bin/env node
+const appRootPath = require('app-root-path');
+const ip = require("ip");
+exports.ip = ip.address()
+const port = normalizePort(process.env.PORT || '3001');
+exports.port = port;
+
+//setting http or https
+let httpMode = 'http'
+if (process.env.NODE_ENV == 'prod') {
+  //create HTTPS server
+  httpMode = 'https'
+  exports.httpMode = httpMode;
+  var app = require('../app');
+  app.set('port', port);
+  var https = require('https');
+  var httpsOptions = {
+    key: fs.readFileSync(`${appRootPath}/ssl/_.abc.com_private_key.key`),
+    cert: fs.readFileSync(`${appRootPath}/ssl/abc.com_ssl_certificate.cer`)
+  };
+  var server = https.createServer(httpsOptions, app);
+} else {
+//create HTTP server
+exports.httpMode = httpMode;
+var app = require('../app');
+app.set('port', port);
+var http = require('http');
+var server = http.createServer(app);
+}
+
+const packagejson = require('../package.json');
+var debug = require('debug')(`${packagejson.name}:server`);
+const fs = require('fs');
+//require('events').EventEmitter.defaultMaxListeners = 100 //increase number of listeners to avoid warning of memory leak and server restart
+var jwt = require('jsonwebtoken');
+const privateKey = require(`${appRootPath}/config/secrets`).privateKey;
+const decrypt = require('../utils/tools').decrypt
+const cron = require('node-cron');
+const createDirectory = require('../utils/tools').createDirectory
+const log = require(`${appRootPath}/utils/log`).log
+const prefs = require(`${appRootPath}/config/prefs`);
+const colors = require('colors/safe');
+const notSeenNotifications = require(`${appRootPath}/utils/tools`).notSeenNotifications
+//const NumClientsInRoom = require(`${appRootPath}/utils/tools`).NumClientsInRoom
+
+//making sure these directories are created to prevent app crash
+createDirectory('uploads/users')
+
+
+const appStartedAt = Date(Date.now());
+
+if (
+  (process.env.NODE_ENV == 'development' && (prefs.dataBaseSync == true || prefs.forceDataBaseSync == true)) ||
+  (process.env.NODE_ENV != 'development' && (prefs.forceDataBaseSync == true))
+) {
+
+}
+
+
+//only for development envirement, rewrite existing data base tables, ALL DATA IN EXITING TABLES WILL BE LOST
+if (process.env.NODE_ENV == 'development' && prefs.overwriteDatabase == true) {
+
+}
+
+//notifying system admins if sync == true on non-dev envirement
+if (process.env.NODE_ENV == 'prod' && (prefs.systemWarnings == true && prefs.forceDataBaseSync == true)) {
+  log().warn({ message: `is activated on ${process.env.NODE_ENV} envirement! this can lead to misbehaving of some data base functions like unique constraints and ommit defaultValues to null` })
+}
+
+//launching the server
+server.listen(port, log().verbose(colors.bgBlue(`******** ${packagejson.name} ${packagejson.version} ${httpMode}://${ip.address()}:${port}/ NODE_ENV=${process.env.NODE_ENV} ********`)));
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ *  socket
+ */
+
+let cu;
+global.io = require("socket.io")(server);
+//var redis = require('socket.io-redis');
+//io.adapter(redis({ host: 'localhost', port: 6379 }));
+
+io.sockets
+  //socket middleware to verify token
+  .use(function (socket, next) {
+    //decoding token
+    return jwt.verify(socket.request._query.token, privateKey, function (err,
+      decoded) {
+      if (err) {
+        return log().warn({
+          message: err,
+          route: '[/bin/www/socket]'
+        });
+      } else {
+        decoded = {
+          iv: decoded.iv,
+          encryptedData: decoded.encryptedData
+        }
+        decoded = JSON.parse(decrypt(decoded))
+        //if token exist in session table so its valid, else its not
+        return models.Session.findOne({
+          where: {
+            token: socket.request._query.token
+          }
+        })
+          .then(session => {
+            if (session == null) {
+              //token not found in session so its not valid
+              /*if (process.env.NODE_ENV == 'development' && decoded.user) {
+                  nremails.invalidSocketTokenLoginAttempt(decoded.user, socket.handshake.headers['user-agent'], socket.handshake.address, decoded.user.lang);
+              }*/
+              return log(decoded.user.id).debug({
+                message: `[INVALID_TOKEN] ${decoded.user.email} user.id=${decoded.user.id}`,
+                route: '[/bin/www/socket]',
+                ip: socket.handshake.address,
+                token: socket.request._query.token,
+                userAgent: socket.handshake.headers['user-agent']
+              })
+            } else {
+              if ((socket.handshake.address == decoded.auth.ip)) { // && (socket.handshake.headers['user-agent'] == decoded.auth.userAgent)) {
+                if (decoded.user) {
+                  cu = decoded.user;
+                  return next();
+                } else {
+                  return log().error({
+                    message: `token doesnt have user object`,
+                    token: socket.request._query.token,
+                    route: '[/bin/www/socket]',
+                    ip: socket.handshake.address /*, userAgent: socket.handshake.headers['user-agent']*/
+                  })
+                }
+              } else {
+                //return log().warn({ message: `[TOKEN_MISMATCH_SESSION] ${decoded.user.email} user.id=${decoded.user.id}`, route: '[/bin/www/socket]', decodedIp: decoded.auth.ip, ip: socket.handshake.address, decodeduserAgent: decoded.auth.userAgent, userAgent: socket.handshake.headers['user-agent']/*, token: socket.request._query.token*/ })
+                return log().verbose({
+                  message: `[TOKEN_MISMATCH_SESSION] ${decoded.user.email} user.id=${decoded.user.id}`,
+                  route: '[/bin/www/socket]',
+                  decodedIp: decoded.auth.ip,
+                  ip: socket.handshake.address,
+                  decodeduserAgent: decoded.auth.userAgent,
+                  userAgent: socket.handshake.headers['user-agent'] /*, token: socket.request._query.token*/
+                })
+              }
+            }
+          })
+          .catch(err => {
+            console.log(colors.bgRed(err));
+            return log().error({
+              message: err
+            });
+          })
+      }
+    });
+  })
+  .on("connection", socket => {
+    //socket logic here, we use rooms to easily handle multiple connections per user
+    log().debug({
+      message: colors.bgMagenta(
+        `[connection] ${cu.email} user.id=${cu.id} socket.id=${socket.id}`
+      ),
+      ip: socket.handshake.address,
+      userAgent: socket.handshake.headers['user-agent']
+    })
+
+    if (cu.role == 1) {
+      //joining user room
+      socket.join(`user_${cu.id}`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room user_${cu.id} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining group room
+      socket.join(`groups`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room groups socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining entreprise room
+      socket.join(`entreprises`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room entreprises socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+    } else {
+      //notifyning of new conencted user
+      /*io.sockets.in(`entreprise_${cu.EntrepriseId}`).emit('userConnected', {
+          //io.sockets.in(`entreprise_${cu.EntrepriseId}`).emit('newNotification', {
+          message: `${cu.firstName} ${cu.lastName} est connecté(e)`,
+          data: `${cu.email}`
+      });*/
+      //joining user room
+      socket.join(`user_${cu.id}`, () => {
+        // log(cu.email).verbose({ message: `${cu.email} joined room user_${cu.id} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining group room
+      socket.join(`group_${cu.GroupId}`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room group_${cu.GroupId} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining entreprise room
+      socket.join(`entreprise_${cu.EntrepriseId}`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room entreprise_${cu.EntrepriseId} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining division room
+      socket.join(`division_${cu.DivisionId}`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room entreprise_${cu.EntrepriseId} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      //joining entreprise room
+      socket.join(`department_${cu.DepartmentId}`, () => {
+        //log(cu.email).verbose({ message: `${cu.email} joined room entreprise_${cu.EntrepriseId} socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+      });
+      if ([2, 3, 4, 5].includes(cu.role)) {
+        socket.join(`group_${cu.GroupId}_managers`, () => {
+          //log(cu.email).verbose({ message: `${cu.email} joined room entreprise_${cu.EntrepriseId}_managers socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+        });
+      }
+      //joining managers room of the entreprise
+      if ([3, 4, 5].includes(cu.role)) {
+        socket.join(`entreprise_${cu.EntrepriseId}_managers`, () => {
+          //log(cu.email).verbose({ message: `${cu.email} joined room entreprise_${cu.EntrepriseId}_managers socket.id=${socket.id}`, ip: socket.handshake.address, userAgent: socket.handshake.headers['user-agent'] })
+        });
+      }
+      //admin join his entreprises rooms
+      if (cu.role == 2) {
+        models.Entreprise.findAll({
+          where: {
+            GroupId: cu.GroupId
+          }
+        })
+          .then(entreprises => {
+            for (let e = 0; e < entreprises.length; e++) {
+              socket.join(`entreprise_${entreprises[e].id}_managers`, () => { });
+              socket.join(`entreprise_${entreprises[e].id}`, () => { });
+            }
+          })
+          .catch(err => {
+            return log().error({
+              message: err,
+              route: '[/bin/www/socket]',
+              ip: socket.handshake.address /*, userAgent: socket.handshake.headers['user-agent']*/
+            });
+          })
+      }
+    }
+
+    socket.on('disconnect', (reason) => {
+      //notifying users of same entreprise
+      log(cu.email).debug({
+        message: colors.bgMagenta(
+          `[disconnect] ${cu.email} user.id=${cu.id} clientsCount ${socket.nsp.server.eio.clientsCount} socket.id=${socket.id} reason=${reason}`
+        ),
+        ip: socket.handshake.address /*, userAgent: socket.handshake.headers['user-agent']*/
+      });
+      return io.sockets.to(`entreprise_${cu.EntrepriseId}`).emit(
+        'userDisconnected', {
+        message: `userId=${cu.firstName} disconnnencted`,
+        data: cu.email
+      });
+
+    });
+
+    socket.on('error', (error) => {
+      //console.log();//to make it easy to read terminal
+      log(cu.email).error({
+        message: colors.bgMagenta(error)
+      })
+    });
+
+    //emitting nonseen notifications when user connects
+    socket.on('requestNotSeenNotifications', () => {
+      log(cu.id).debug({
+        message: colors.bgMagenta(
+          `[requestNotSeenNotifications] user.id=${cu.id} ${cu.email}`
+        )
+      })
+      return notSeenNotifications(cu.id)
+    });
+
+    //make read notifications status seen
+    socket.on("seenNotifications", seenNotificationsArrayOfid => {
+      return models.Notification.update({
+        isSeen: true
+      }, {
+        where: {
+          id: {
+            [Op.in]: seenNotificationsArrayOfid
+          }
+        }
+      })
+        .then(updatedNotification => {
+          return log().debug({
+            message: colors.bgMagenta(
+              `[seenNotifications] ${cu.email} has seen notifications of ids ${seenNotificationsArrayOfid}`
+            ),
+            ip: socket.handshake.address /*, userAgent: socket.handshake.headers['user-agent']*/
+          });
+        })
+        .catch(err => {
+          return log().error({
+            message: err,
+            route: '[/bin/www/socket]',
+            ip: socket.handshake.address /*, userAgent: socket.handshake.headers['user-agent']*/
+          });
+        })
+    });
+
+    /*socket.on('disconnecting', (reason) => {
+        log().verbose({ message: `[disconnecting]:clientsCount=${socket.nsp.server.eio.clientsCount} userId=${cu.id} socket.id=${socket.id} reason=${reason}` });
+    });*/
+  })
+
+/**
+ * cron jobs
+ */
+//resetting serviceTimeMPW of every user to 0  every sunday at 00:00
+cron.schedule('0 0 0 * * 0', () => {
+  // cron.schedule('* * * * * *', () => {
+  return models.User.findAll({
+    where: {
+      isActive: true
+    }
+  })
+    .then(users => {
+      if (users.length == 0)
+        return log().verbose({
+          message: `no eligible users to reset their serviceTimeMPW!`
+        })
+      for (let u = 0; u < users.length; u++) {
+        log(users[u].id).verbose({
+          message: `${users[u].email} serviceTimeMPW was resetted from ${users[u].serviceTimeMPW} to 0`
+        })
+        users[u].serviceTimeMPW = 0
+        users[u].serviceTimeHPW = 0
+        users[u].save()
+          .then(savedUser => {
+            return
+          })
+          .catch(err => {
+            return log().error({
+              message: err,
+              route: `[/bin/www/cron]`
+            });
+          })
+      }
+    })
+    .catch(err => {
+      return log().error({
+        message: err,
+        route: `[/bin/www/cron]`
+      });
+    })
+});
+
+//resetting serviceTimeHPM of every user to 0  every 1st of every month
+cron.schedule('0 0 0 1 * *', () => {
+  //cron.schedule('* * * * * *', () => {
+  return models.User.findAll({
+    where: {
+      isActive: true
+    }
+  })
+    .then(users => {
+      if (users.length == 0)
+        return log().verbose({
+          message: `no eligible users to reset their serviceTimeHPW!`
+        })
+      for (let u = 0; u < users.length; u++) {
+        log(users[u].id).verbose({
+          message: `${users[u].email} serviceTimeHPM was resetted from ${users[u].serviceTimeHPM} to 0`
+        })
+        users[u].serviceTimeHPM = 0
+        users[u].save()
+          .then(savedUser => {
+            return
+          })
+          .catch(err => {
+            return log().error({
+              message: err,
+              route: `[/bin/www/cron]`
+            });
+          })
+      }
+    })
+    .catch(err => {
+      return log().error({
+        message: err,
+        route: `[/bin/www/cron]`
+      });
+    })
+});
+
+//#vacationStatus
+//setting user.inVacation , every day midnight
+cron.schedule('0 0 * * *', () => {
+  //cron.schedule('* * * * * *', () => {
+  return models.Workday.findAll({
+    where: {
+      date: (new Date()).getTheDate(),
+      isDeleted: false
+    },
+    include: {
+      model: models.User,
+      as: 'User'
+    }
+  })
+    .then(async workdays => {
+      for (let w = 0; w < workdays.length; w++) {
+        if (workdays[w].User.inVacation != workdays[w].isVacation) {
+          await models.User.update({
+            inVacation: workdays[w].isVacation
+          }, {
+            where: {
+              id: workdays[w].UserId,
+              isActive: true
+            },
+            returning: true
+          })
+            .then(updatedUser => {
+              if (updatedUser[0] != 0)
+                return log(workdays[w].User.id).verbose({
+                  message: `${workdays[w].User.email} set inVacation=${workdays[w].isVacation}`
+                })
+            })
+            .catch(err => {
+              return log().error({
+                message: err,
+                route: `[/bin/www/cron/vacationStatus]`
+              });
+            })
+        }
+      }
+    })
+    .catch(err => {
+      return log().error({
+        message: err,
+        route: `[/bin/www/cron/vacationStatus]`
+      });
+    })
+});
+
+//#vacationBalance
+//update users vacations balance every 28th of month
+cron.schedule('58 23 28 * *', () => {
+  // cron.schedule('* * * * * *', () => {
+  return models.User.findAll({
+    where: {
+      isActive: true,
+      role: {
+        [Op.in]: [3, 4, 5, 6]
+      }
+    }
+  })
+    .then(users => {
+      if (users.length == 0) return log().verbose({
+        message: `no eligible users to update their vacationBalance!`
+      })
+      for (let u = 0; u < users.length; u++) {
+        if (users[u].contractType == 'CDI') {
+          users[u].vacationBalance = users[u].vacationBalance + 2.5;
+          users[u].save()
+            .then(savedUser => {
+              return log(users[u].email).verbose({
+                message: `${users[u].email} vacationBalance was updated to be ${users[u].vacationBalance}`
+              })
+            })
+            .catch(err => {
+              return log().error({
+                message: err,
+                route: `[/bin/www/cron/vacationBalance]`
+              });
+            })
+        }
+      }
+    })
+    .catch(err => {
+      return log().error({
+        message: err,
+        route: `[/bin/www/cron/vacationBalance]`
+      });
+    })
+});
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port == 'string' ?
+    'Pipe ' + port :
+    'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr == 'string' ?
+    'pipe ' + addr :
+    'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+exports.appStartedAt = appStartedAt;

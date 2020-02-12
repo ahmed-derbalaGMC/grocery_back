@@ -1,0 +1,261 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,401,600,700|Roboto+Mono">
+    <style>
+    html{
+        margin-left: 20%;
+        margin-right: -30%    }
+    * {
+      padding: 0;
+      
+      box-sizing: border-box;
+    }
+    img{
+        margin-left: 20%;
+        width: 100%;
+        margin-bottom: 30%
+    }
+    body {
+        width: 40%;        
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.42857;
+        color: #333333;
+        background-color: #fff;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        letter-spacing: -0.02rem;
+        color: rgba(14, 20, 26, 0.6);
+        padding: 0;
+        margin: 0;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    .content {
+      max-width: 1024px;
+      margin: auto;
+    }
+    .banner {
+        overflow: hidden;
+        background: #2986BE;
+        background-image: url(http://p6.zdassets.com/hc/theme_assets/138842/200037786//pattern_transparent.png), linear-gradient(-150deg, #00C1B6 0%, #136EB5 97%);
+        background-size: 380px, contain;
+        padding-top: 121px;
+        padding-bottom: 35px;
+        margin-bottom: 50px;
+    }
+    p {
+        margin: 0 0 10px;
+    }
+    h1 {
+      color: rgba(14, 20, 26, 0.8);
+      font-family: "Galano Semibold", sans-serif;
+      font-weight: 401;
+      font-size: 35px;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ebebeb;
+        margin-bottom: 2.5rem;
+        margin-top: 2.5rem;
+    }
+    table th {
+        font-family: 'Whitney SSm SmallCaps A','Whitney SSm SmallCaps B','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: left!important;
+        background: #fafafa;
+        border-bottom: 1px solid #ebebeb;
+        color: #9ca3a6;
+        padding: 10px;
+    }
+    table td:first-child {
+        text-align: right;
+        white-space: nowrap;
+    }
+    table td {
+        padding: 10px;
+        font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    td {
+      border-bottom: 1px solid #E1E1E1;
+    }
+    .lang-POST,
+    .lang-PATCH,
+    .lang-GET,
+    .lang-PUT,
+    .lang-DELETE {
+      line-height: 41px;
+      margin-bottom: 1em;
+      font-size: 16px;
+      border-radius: 3px;
+      display: block;
+      background-color: #fafafa;
+      border: 1px solid #ebebeb;
+    }
+    .lang-POST:before,
+    .lang-PATCH:before,
+    .lang-GET:before,
+    .lang-PUT:before,
+    .lang-DELETE:before {
+        content: "METHOD";
+        background-color: gray;
+        display: block;
+        color: #fff;
+        float: left;
+        padding: 1px 15px;
+        font-size: 13px;
+        font-weight: 600;
+        margin: -1px 16px 0 -1px;
+        border-radius: 3px 0 0 3px;
+    }
+    .lang-POST { border-color: #8bc7f2; }
+    .lang-POST:before { content: "POST"; background-color: #2391e3; }
+
+    .lang-PATCH { border-color: #b59fe0; }
+    .lang-PATCH:before { content: "PATCH"; background-color: #673fb4; }
+
+    .lang-GET { border-color: #9ed99e; }
+    .lang-GET:before { content: "GET"; background-color: #3eb33e; }
+
+    .lang-PUT { border-color: #f2d9a5; }
+    .lang-PUT:before { content: "PUT"; background-color: #eab03a; }
+
+    .lang-DELETE { border-color: #ec9c9c; }
+    .lang-DELETE:before { content: "DELETE"; background-color: #e23b3b; }
+
+    .lang-WS { border-color: #c0ffad; }
+    .lang-WS:before { content: "WS"; background-color: #00e50b; }
+   
+    table td:first-child code {
+        padding: 3px 9px;
+        display: block;
+    }
+    pre:hover {
+        overflow: auto;
+    }
+    pre {
+        background-color: #fafafa;
+        border: 1px solid #ebebeb;
+        color: #828282;
+        line-height: 24px;
+        margin: 1.3em 0;
+        padding: 12px 17px;
+        border-radius: 4px;
+        overflow: auto;
+    }
+    pre.nocss {
+      background: none;
+      border: 0;
+      padding: 0;
+    }
+    table code {
+        padding: 4px;
+        color: #eb3838;
+        font-size: 100%;
+        background-color: #fff2f2;
+        border-radius: 3px;
+        border: 0 none;
+        margin: 0;
+        font-family: Consolas,'Liberation Mono',Menlo,Courier,monospace;
+        white-space: nowrap;
+        background: #F1F1F1;
+        font-weight: 500;
+    }
+    .banner .banner_container {
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .banner .banner_title {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-basis: 100%;
+        font-weight: 900;
+        color: #FFFFFF;
+        font-size: 58px;
+        line-height: 69px;
+        margin: 0;
+        letter-spacing: -1px;
+    }
+    .banner p, .banner .search-results-heading {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-basis: 100%;
+        color: #FFFFFF;
+        margin: 0;
+        font-size: 22px;
+        line-height: 27px;
+        padding-bottom: 15px;
+    }
+    .article_breadcrumbs_container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        display: block;
+        padding-bottom: 30px;
+    }
+    .breadcrumbs {
+        margin: 0;
+        margin-right: 1px;
+        list-style: none;
+        padding: 0;
+        display: inline-block;
+    }
+    .breadcrumbs li {
+        color: #7D7D7D;
+        font-size: 15px;
+        display: inline-block;
+    }
+    .breadcrumbs li:first-child:before {
+      content: none;
+      padding: 0;
+    }
+    .breadcrumbs li {
+      color: #7D7D7D;
+      font-size: 15px;
+      display: inline-block;
+    }
+    .breadcrumbs li:before {
+      content: ">";
+      color: #CACACA;
+      padding: 0 0px;
+      margin-right: 10px;
+      margin-left: 5px;
+    }
+    .breadcrumbs li:nth-child(3) {
+      display: none;
+    }
+    .article_breadcrumbs_container .breadcrumbs li:nth-child(3) {
+      display: inline-block;
+    }
+    a {
+        text-decoration: none;
+        color: #3aa3e3;
+    }
+    </style>
+
+
+
+
+
+
+
+
+
+
+

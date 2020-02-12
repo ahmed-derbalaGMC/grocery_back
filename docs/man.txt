@@ -1,0 +1,138 @@
+#starting the project
+run the project with npm run dev on your local machine to use nodemon and force NODE_ENV=development 
+project name in package.json is the same name of the data base
+
+#secrets
+secrets.tokenEncryptionKey must be 32 characters
+
+#role
+role starts from 1, 0 is reserved for future use
+
+#log levels
+error: something that really needs a fix | console,file,email
+warn: a function error, front-end input data malformed, a non expected behaviour, so something that does not really needs a fix | console,file,email
+info: an information to application managers, does not require maintainers attention | console,file,email
+verbose: something needs to be printed to the console and log file but not email | console,file
+debug: something needs to be printed to the console only | console
+
+#prefs
+prefs.js is designed to minimize code modifications for new projects
+
+#log
+http://127.0.0.1:3008/
+http://127.0.0.1:3008/?id=x //or any id of users or projectname
+
+by default
+from: today
+until: today
+limit: 1000
+order: desc
+
+#logging
+route: req.originalUrl is needed only when logging a warn or error to include it in the email, but it doesnt hurt if its written in non warn or error log
+
+#routes
+router.delete is reserved to destroy from DB, use router.put for isDeleted = true
+
+#version
+dev cant be merged to test or prod envirements
+test can be merged to test or dev envirements only
+prod can be merged to prod or test or dev envirements
+
+#sequelize
+.sync({alter: true}) can add new columns to table without need to manual intervention on DB or deleting concerned table to apply new migration,
+ but its override defaultValue to null, thats why before any .create its better to add attributes with defaultValues to req.body,
+example: req.body.isDeleted = false
+we have not to use { alter: true } on prod
+
+#languages
+fr(default), en
+
+#defaultValues
+make sure to set defaultValues before any .create because sequelize.sync({ alter: true}) omit these values to null
+
+#noreply email
+the noreply email should be set in config/prefs and its password in config/secrets
+
+#generating db schema
+https://github.com/cbbrowne/autodoc
+
+
+#httpMode
+httpMode should be set to http or https in bin/www
+
+#database schema synchronization
+if its set to true, you loose migrations defaultValues and unique constraints, but you gain time to add new columns without proper migration file
+
+#prefs.dataBaseSync
+sync db on development envirement
+
+#prefs.forceDataBaseSync
+sync db on NON-development envirement
+
+####################################################### CODE SNIPPETS ##################################################################
+  console.log(req.headers);
+console.log(req.body);
+##### access denied
+
+//checking access level
+if (![2, 3].includes(req.cu.role)) {
+    log().warn({ message: `[ACCESS_DENIED] ${req.cu.email} role=${req.cu.role} id=${req.cu.id}`, route: req.originalUrl, ip: req._remoteAddress,userAgent: req.headers["user-agent"] });
+    if (process.env.NODE_ENV == 'prod')
+     return res.status(403).send(`[ACCESS_DENIED]`)
+    return res.status(403).send(`your access level is ${req.cu.role}. Required [2, 3]`)
+  }
+
+##### sequelize catch
+.catch(err => {
+          console.log(colors.bgRed(err));
+      log().error({ message: err, route: req.originalUrl,body: req.body,headers: req.headers,  ip: req._remoteAddress,userAgent: req.headers["user-agent"] });
+          if (process.env.NODE_ENV == 'prod')
+            return res.status(522).send('fail');
+          return res.status(522).send(err);
+        })
+
+##### headers.id
+
+//checking headers.id
+  if (isNaN(req.headers.id) || req.headers.id == 0) {
+    log().debug({ message: `headers.id=${req.headers.id} error`, route: req.originalUrl, ip: req._remoteAddress,userAgent: req.headers["user-agent"] })
+    if (process.env.NODE_ENV == 'prod')
+     return res.status(422).send('params error')
+    return res.status(422).send(`headers.id=${req.headers.id} error`)
+  }
+
+##### body.status
+//checking body.status
+        if (!req.body.status || (req.body.status != 'accepted' && req.body.status != 'refused')) {
+          log().debug({ message: `body.status=${req.body.status} error`, route: req.originalUrl, ip: req._remoteAddress, userAgent: req.headers["user-agent"] })
+          if (process.env.NODE_ENV == 'prod')
+            return res.status(422).send('params error')
+          return res.status(422).send(`body.status=${req.body.status} error`)
+        }
+
+  ##### search
+
+  if (req.headers.search && req.headers.search.length > 0) {
+    where[Op.or] = [{
+      firstName: {
+        [Op.iLike]: `%${req.headers.search}%`
+      }
+    }, {
+      lastName: {
+        [Op.iLike]: `%${req.headers.search}%`
+      }
+    }, {
+      '$Entreprise.name$': {
+        [Op.iLike]: `%${req.headers.search}%`
+      }
+    }, {
+      '$Entreprise.country$': {
+        [Op.iLike]: `%${req.headers.search}%`
+      }
+    }]
+  }
+
+
+##### /all debug
+      log().debug({ message: `${req.cu.email} id=${req.cu.id} role=${req.cu.role} listed ${myModel}`,count:myObj.count,rows:myObj.rows.length,search:req.headers.search,page:req.headers.page, where, route: req.originalUrl })

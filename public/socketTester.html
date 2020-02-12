@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SocketTester</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="javascripts/socket.io.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="javascripts/socketTester.js"></script>
+</head>
+
+<body style="background-color:rgb(184, 179, 179);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+
+        <h3>socket.id</h3>
+        <input id="socketId" type="text" />
+        <h3>socket status</h3>
+        <div id="socketStatus"></div>
+
+        <div id="server_zone">
+
+          <h3>server</h3>
+          <input id="server" type="text" value="192.168.100.101" />
+          <h3>port</h3>
+          <input id="port" type="text" value="3008" />
+          <h3>token</h3>
+          <input id="token" type="text" placeholder="paste token and click listen" />
+          <h3>id</h3>
+          <input id="id" type="text" placeholder="optionnal" />
+
+          <button id="server1" type="button">local</button>
+          <button id="server2" type="button">distant</button>
+          <button id="listen" type="button">listen</button>
+        </div>
+
+        <div id="logs">
+          <h3>LOGS</h3>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div class="container-fluid">
+          <div class="col">
+            <div id="onlineSockets_zone" class="row-md-6">
+
+              online sockets event
+              <input id="onlineSocketsEvent" type="text" value="userConnected" />
+              online sockets length
+              <input id="onlineSocketsLength" type="text" />
+              <div id="onlineSockets_data"></div>
+            </div>
+            <div id="emitAndOn_zone" class="row-md-6">
+              <div class="container-fluid">
+                <div class="row">
+
+                  <div id="emit_zone" class="col-md-6">
+                    emit event
+                    <input id="emit_event" type="text" value="requestNotSeenNotifications" />
+                    emit to<input id="emit_to" type="text" />
+                    emit data
+                    <input id="emit_data" type="text" />
+                    <button id="sendBtn" type="button">Send</button>
+                  </div>
+                  <div id="on_zone" class="col-md-6">
+                    ON
+                    counter
+                    <input id="counter" type="text" />
+                    data length
+                    <input id="dataLength" type="text" />
+                    event name
+                    <input id="on_event" type="text" value="receiveNotSeenNotifications" />
+                    <div id="on_data">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="emitAndOn_zone" class="row-md-6">
+              <div class="container-fluid">
+                <div class="row">
+
+                  <div id="emit_zone" class="col-md-6">
+                    emit event
+                    <input id="emit_event2" type="text" value="newNotification" />
+                    emit to<input id="emit_to" type="text" />
+                    emit data
+                    <input id="emit_data2" type="text" />
+                    <button id="sendBtn2" type="button">Send</button>
+                  </div>
+                  <div id="on_zone" class="col-md-6">
+                    ON
+                    counter
+                    <input id="counter2" type="text" />
+                    data length
+                    <input id="dataLength2" type="text" />
+                    event name
+                    <input id="on_event2" type="text" value="newNotification" />
+                    <div id="on_data2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
