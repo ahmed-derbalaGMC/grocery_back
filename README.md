@@ -6,7 +6,7 @@
 -|
 
 
-`you can always check logs via 127.0.0.1:3008, if nothing is shown try to reset logs via 127.0.0.1:3008/resetLogs `  |
+`you can always check logs via 127.0.0.1:3001, if nothing is shown try to reset logs via 127.0.0.1:3001/resetLogs `  |
 -|
 
 ### http status codes
