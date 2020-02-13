@@ -3,18 +3,6 @@
 <table>
 <thead>
 <tr>
-<th><code>YOU NEED TO RELOAD THIS PAGE EVERY TIME YOU NEED IT BECAUSE IT GETS UPDATED FREQUENTLY, CHECK IT BEFORE CONTACTING BACKEND DEVELOPER</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
 <th><code>Most of the requests needs to include a valid token on the header</code></th>
 </tr>
 </thead>
@@ -27,55 +15,7 @@
 <table>
 <thead>
 <tr>
-<th><code>You should connect to the socket ONLY After a succesfull login request (/user/login)</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>You should connect to the socket like this: socket = io(server, { query: { token } });</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>most GET requests should be sent with page on the HEADER, you should expect pageCount on the response, if page==0 or no page sent, the response will contains maximum 1000 entries</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>most GET (/all) requests support searching, you can add search attribute on the header</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>you can always check logs via 192.168.100.101:3008, if nothing is shown try to reset logs via 192.168.100.101:3008/resetLogs</code></th>
+<th><code>you can always check logs via 127.0.0.1:3008, if nothing is shown try to reset logs via 127.0.0.1:3008/resetLogs</code></th>
 </tr>
 </thead>
 <tbody>
@@ -152,21 +92,21 @@
 </tbody>
 </table>
 <h2 id="signin">signin</h2>
-<pre><code class="lang-POST">http://192.168.6.65:3001/user/signin
+<pre><code class="lang-POST">http://127.0.0.1:3001/user/signin
 </code></pre>
 <p>a user can login with his email</p>
-<h4 id="body">body</h4>
+<h3 id="body">body</h3>
 <pre><code>{
   email: String,
   password: String
 }
-</code></pre><h1 id="response">Response</h1>
+</code></pre><h3 id="response">Response</h3>
 <pre><code>{
     user object or error
 }
 </code></pre><hr>
 <h2 id="signup">signup</h2>
-<pre><code class="lang-POST">http://192.168.6.65:3001/user/signup
+<pre><code class="lang-POST">http://127.0.0.1:3001/user/signup
 </code></pre>
 <p>a user can register with his email and password</p>
 <h3 id="body">body</h3>
@@ -179,8 +119,8 @@
     user object or error
 }
 </code></pre><hr>
-<h2 id="add">add</h2>
-<pre><code class="lang-POST">http://192.168.6.65:3001/product/add
+<h2 id="add-new-product">add new product</h2>
+<pre><code class="lang-POST">http://127.0.0.1:3001/product/add
 </code></pre>
 <p>create new product</p>
 <h3 id="body">body</h3>
@@ -194,7 +134,7 @@
 }
 </code></pre><hr>
 <h2 id="sort-products">sort products</h2>
-<pre><code class="lang-GET">http://192.168.6.65:3001/product/sort/?name=xxx&amp;quantity=xxx
+<pre><code class="lang-GET">http://127.0.0.1:3001/product/sort/?name=xxx&amp;quantity=xxx
 </code></pre>
 <p>sorting products by name or quantity</p>
 <h3 id="response">Response</h3>
@@ -203,7 +143,7 @@
 }
 </code></pre><hr>
 <h2 id="list-all-products">list all products</h2>
-<pre><code class="lang-GET">http://192.168.6.65:3001/product/all
+<pre><code class="lang-GET">http://127.0.0.1:3001/product/all
 </code></pre>
 <p>list all products </p>
 <h3 id="response">Response</h3>
@@ -212,7 +152,7 @@
 }
 </code></pre><hr>
 <h2 id="destroy-order">destroy order</h2>
-<pre><code class="lang-DELETE">http://192.168.6.65:3001/order/destroy/:id
+<pre><code class="lang-DELETE">http://127.0.0.1:3001/order/destroy/:id
 </code></pre>
 <p>delete an order from database</p>
 <h3 id="response">Response</h3>
@@ -221,7 +161,7 @@
 }
 </code></pre><hr>
 <h2 id="user-request-his-orders">user request his orders</h2>
-<pre><code class="lang-GET">http://192.168.6.65:3001/order/mine
+<pre><code class="lang-GET">http://127.0.0.1:3001/order/mine
 </code></pre>
 <p>user request his orders</p>
 <h3 id="response">Response</h3>

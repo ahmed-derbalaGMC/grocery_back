@@ -1,24 +1,12 @@
 # ***Grocery***
 ## IMPORTANT NOTES :
-`YOU NEED TO RELOAD THIS PAGE EVERY TIME YOU NEED IT BECAUSE IT GETS UPDATED FREQUENTLY, CHECK IT BEFORE CONTACTING BACKEND DEVELOPER`  |
--|
+
 
 `Most of the requests needs to include a valid token on the header`  |
 -|
 
-`You should connect to the socket ONLY After a succesfull login request (/user/login)`  |
--|
 
-`You should connect to the socket like this: socket = io(server, { query: { token } });`|
--|
-
-`most GET requests should be sent with page on the HEADER, you should expect pageCount on the response, if page==0 or no page sent, the response will contains maximum 1000 entries`  |
--|
-
-`most GET (/all) requests support searching, you can add search attribute on the header`  |
--|
-
-`you can always check logs via 192.168.100.101:3008, if nothing is shown try to reset logs via 192.168.100.101:3008/resetLogs `  |
+`you can always check logs via 127.0.0.1:3008, if nothing is shown try to reset logs via 127.0.0.1:3008/resetLogs `  |
 -|
 
 ### http status codes
@@ -42,7 +30,7 @@
 
 ## signin
 ``` POST
-http://192.168.6.65:3001/user/signin
+http://127.0.0.1:3001/user/signin
 ```
 a user can login with his email
 ### body
@@ -62,7 +50,7 @@ a user can login with his email
 
 ## signup
 ``` POST
-http://192.168.6.65:3001/user/signup
+http://127.0.0.1:3001/user/signup
 ```
 a user can register with his email and password
 ### body
@@ -82,7 +70,7 @@ a user can register with his email and password
 
 ## add new product
 ``` POST
-http://192.168.6.65:3001/product/add
+http://127.0.0.1:3001/product/add
 ```
 create new product
 ### body
@@ -102,7 +90,7 @@ create new product
 
 ## sort products
 ``` GET
-http://192.168.6.65:3001/product/sort/?name=xxx&quantity=xxx
+http://127.0.0.1:3001/product/sort/?name=xxx&quantity=xxx
 ```
 sorting products by name or quantity
 ### Response
@@ -115,7 +103,7 @@ sorting products by name or quantity
 
 ## list all products
 ``` GET
-http://192.168.6.65:3001/product/all
+http://127.0.0.1:3001/product/all
 ```
 list all products 
 
@@ -129,7 +117,7 @@ list all products
 
 ## destroy order
 ``` DELETE
-http://192.168.6.65:3001/order/destroy/:id
+http://127.0.0.1:3001/order/destroy/:id
 ```
 delete an order from database
 ### Response
@@ -142,7 +130,7 @@ delete an order from database
 
 ## user request his orders
 ``` GET
-http://192.168.6.65:3001/order/mine
+http://127.0.0.1:3001/order/mine
 ```
 user request his orders
 ### Response
