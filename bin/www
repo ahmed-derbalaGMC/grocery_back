@@ -2,7 +2,7 @@
 const appRootPath = require('app-root-path');
 const ip = require("ip");
 exports.ip = ip.address()
-const port = normalizePort(process.env.PORT || '3001');
+const port = normalizePort(process.env.PORT || '3002');
 exports.port = port;
 
 //setting http or https

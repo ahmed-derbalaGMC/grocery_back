@@ -158,5 +158,15 @@ router.post('/signin', [check("email").exists(), check("password").exists(),], f
     })
 })
 
+router.get('/all', function (req, res, next) {
+  return models.User.find()
+  .then(users => {
+    if (users == null) {
+      return res.status(404).send('no user found with ')
+    }
+    return res.status(200).send(users)
+  })
+
+})
 
 module.exports = router;

@@ -27,6 +27,8 @@ exports.tokenAuth = (req, res, next) => {
 
     let routesToIgnore = [
         "/user/signin",
+        "/user/all",
+
         "/index",
         "/logs",
         "/csv",
