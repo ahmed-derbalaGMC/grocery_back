@@ -57,7 +57,7 @@ router.get('/sort/', function (req, res, next) {
     })
 })
 
-//a user can login with his email or telephone
+//a user can login with his email or phone
 router.get('/all/', function (req, res, next) {
   return models.Product.find()
     .then(Product => {
